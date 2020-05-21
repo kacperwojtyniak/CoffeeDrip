@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-title>[TODO] Kawy</ion-title>    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-searchbar placeholder="{{'COFFEE_LIST_SEARCH' | translate}}" (ionChange)="filterList()" [(ngModel)]="filter"></ion-searchbar>
+    <ion-virtual-scroll *ngIf="filteredList; else loading" [items]="filteredList">        
+
+        <ion-item detail *virtualItem="let item" (click)="nav(item.id)">
+            <ion-avatar slot="start">
+              <img src="https://i.pinimg.com/originals/9c/4e/42/9c4e42a42f8b989b94a5223a720f28da.jpg">
+            </ion-avatar>
+            <ion-label>
+              <h3>{{ item.name }}</h3>
+              <p>{{item.roastery}}</p>
+              <p>{{item.country}}</p> 
+            </ion-label>            
+          </ion-item>
+
+      </ion-virtual-scroll>
+
+      <ng-template #loading>
+        <p>Loading...</p>
+      </ng-template>
+</ion-content>

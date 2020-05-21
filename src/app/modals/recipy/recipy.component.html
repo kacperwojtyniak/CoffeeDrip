@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" class="headerBackButton">
+            <ion-back-button (click)="dismiss()" style="display:flex"></ion-back-button>
+          </ion-buttons>
+      <ion-title>RecipiesDetails</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content padding>
+
+  <ion-item>
+    <b>{{'COFFEE_REVIEW_AUTHOR' | translate}}:</b> {{recipy.author}}
+  </ion-item>
+  <ion-item>
+    <b>{{'COFFEE_REVIEW_RATING' | translate}}:</b> {{recipy.rating}}
+  </ion-item>
+  <ion-item>
+    {{recipy.description}}
+  </ion-item>
+</ion-content>

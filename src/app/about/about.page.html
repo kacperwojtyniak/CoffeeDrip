@@ -1,0 +1,11 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>About2</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p *ngIf="userName">{{userName}}</p>
+  <ion-button (click)="logOut()">LogOut</ion-button>
+  <ion-button (click)="logIn()">Log in</ion-button>
+</ion-content>

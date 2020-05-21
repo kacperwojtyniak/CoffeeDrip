@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>coffeeDetails</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div style="background:red; height:25%; text-align: center;">
+    <img src="https://www.coffeedesk.pl/photos/products/normal/17358ece94fed1b9ca88c22952b2091b.jpg" style="height: 100%;" />
+  </div>
+  <ion-toolbar no-border-top>
+    <ion-segment (ionChange)="segmentChanged($event)" value="description">
+      <ion-segment-button value="description">
+        {{'COFFEE_DETAILS_DESC' | translate}}
+      </ion-segment-button>
+      <ion-segment-button value="reviews">
+        {{'COFFEE_DETAILS_REV' | translate}}
+      </ion-segment-button>
+      <ion-segment-button value="recipies">
+        {{'COFFEE_DETAILS_RECIPIES' | translate}}
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+  <div *ngIf="coffee" [ngSwitch]="section">
+    <div *ngSwitchCase="'description'">
+      <ion-item>
+        <b>{{'COFFEE_DETAILS_DESC_NAME' | translate}}:</b> {{coffee.name}}
+      </ion-item>
+      <ion-item>
+        <b>{{'COFFEE_DETAILS_DESC_ROASTERY' | translate}}:</b> {{coffee.roastery}}
+      </ion-item>
+      <ion-item>
+        <b>{{'COFFEE_DETAILS_DESC_COUNTRY' | translate}}:</b> {{coffee.country}}
+      </ion-item>
+      <ion-item>
+        <b>{{'COFFEE_DETAILS_DESC_REGION' | translate}}:</b> {{coffee.region}}
+      </ion-item>
+      <ion-item>
+        <b>{{'COFFEE_DETAILS_DESC_PRODUCER' | translate}}:</b> {{coffee.producer}}
+      </ion-item>
+      <ion-item>
+        <b>{{'COFFEE_DETAILS_DESC_FARM' | translate}}:</b> {{coffee.farm}}
+      </ion-item>
+      <ion-item>
+        <b>{{'COFFEE_DETAILS_DESC_ALTITUDE' | translate}}:</b> {{coffee.altitude}} m n.p.m.
+      </ion-item>
+      <ion-item>
+        <b>{{'COFFEE_DETAILS_DESC_PROCESSIGMETHOD' | translate}}:</b> {{coffee.processingMethod}}
+      </ion-item>
+      <ion-item>
+        <b>{{'COFFEE_DETAILS_DESC_FLAVOUR' | translate}}:</b> {{coffee.flavour}}
+      </ion-item>
+      <ion-item>
+        <p>{{coffee.description}}</p>
+      </ion-item>
+    </div>
+
+    <div *ngSwitchCase="'reviews'">
+      <app-reviews-list [coffeeId]="coffee.id"></app-reviews-list>
+    </div>
+
+    <div *ngSwitchCase="'recipies'">
+      <app-recipies-list [coffeeId]="coffee.id"></app-recipies-list>      
+    </div>
+  </div>  
+</ion-content>

@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" class="headerBackButton">
+            <ion-back-button (click)="dismiss()" style="display:flex"></ion-back-button>
+        </ion-buttons>
+        <ion-title>{{title}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-grid>        
+        <ion-row>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label position="floating">[TODO] Title</ion-label>
+                    <ion-input [(ngModel)]= "review.title"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label position="floating">[TODO] Review</ion-label>
+                    <ion-textarea rows="10" [(ngModel)]= "review.description"></ion-textarea>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+
+    </ion-grid>
+</ion-content>
+<ion-footer >
+    <ion-toolbar>
+    <ion-grid>
+        <ion-row>
+            <ion-col size="6">
+                <ion-button color="primary" class="button-full" (click)="dismiss()">
+                    [TODO] Cancel
+                </ion-button>
+            </ion-col>
+            <ion-col size="6">
+                <ion-button color="primary" class="button-full" (click)="save()">
+                    [TODO] SAVE
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-toolbar>
+</ion-footer>

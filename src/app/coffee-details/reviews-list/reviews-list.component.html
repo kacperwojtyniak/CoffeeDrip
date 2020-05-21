@@ -1,0 +1,18 @@
+<ion-list *ngIf="reviews">
+  <ion-item *ngFor="let item of reviews" (click)="openReview(item)">
+    <ion-avatar slot="start">
+      <img src="https://i.pinimg.com/originals/9c/4e/42/9c4e42a42f8b989b94a5223a720f28da.jpg">
+    </ion-avatar>
+    <ion-label>
+      <h3>{{ item.author }}</h3>
+      <p>{{item.rating}}</p>
+    </ion-label>
+    <ion-icon *ngIf="canEdit(item)" name="create" (click)="edit($event, item)">Test</ion-icon>
+  </ion-item>
+</ion-list>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="addReview()" translucent="true">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
